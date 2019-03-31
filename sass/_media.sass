@@ -1,0 +1,124 @@
+@import "vars"
+
+
+/*==========  Desktop First  ==========*/
+
+// ≤1200px
++media-breakpoint-up(xl)
+  // .header-content
+  //   padding: 20% 0 0
+
+// ≥1200px
++media-breakpoint-down(lg)
+  .header-content
+    .responsive-img
+      width: 100%
+      max-width: 100%
+    &
+      // padding: 10% 0
+      // padding-bottom: 0
+  .phone
+    padding-right: 50px
+
+
+
+// ≥992px
++media-breakpoint-down(md)
+  .ishome h1
+    font-size: 34px
+
+  // .mw-wrapper
+  //   padding: 40px 0
+
+  .col-md-6
+    .row
+      span
+        display: none
+
+  .item-vertical
+    span
+      display: none
+
+  .testimonials-item
+    .testimonials-desc
+      padding: 15px
+
+
+// ≥768px
++media-breakpoint-down(sm)
+  .mnu-line
+    text-align: center
+    .logo
+      display: inline-block
+    .phone
+      text-align: center
+      padding-right: 0
+      margin-top: 25px
+    .toggle-mnu
+      top: -50px
+    .hidden-mnu
+      font-size: 15px
+      text-transform: uppercase
+  .ishome
+    h1
+      font-size: 25px
+
+  .ishome
+    h2
+      font-size: 28px
+
+  .s-profile
+    h2
+      margin-top: 30px
+
+  .portfolio-popup
+  	h2
+      font-size: 25px
+  	.td
+  		padding-bottom: 30px
+  	.responsive-img
+  		padding: 40px 0 4%
+
+  .portfolio-popup-text
+    padding-bottom: 20px
+
+  .slide-two
+  	padding: 0 40px
+  	text-align: center
+  	.owl-nav
+  		position: absolute
+  		width: 100%
+  		top: -10px
+  		font-size: 34px
+  		color: #9c9c9c
+  		transition: all .5s ease
+  		&:hover
+  			color: $accent
+  		.owl-prev
+  			position: absolute
+  			left: -20px
+  		.owl-next
+  			position: absolute
+  			right: 60px
+  			left: auto
+
+  .testimonials-item
+    margin-bottom: 60px
+
+// ≥576px
++media-breakpoint-down(xs)
+
+
+/*==========  Mobile First  ==========*/
+
+// ≤576px
++media-breakpoint-up(sm)
+
+// ≤768px
++media-breakpoint-up(md)
+
+// ≤992px
++media-breakpoint-up(lg)
+
+// ≤1200px
++media-breakpoint-up(xl)
