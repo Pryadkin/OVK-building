@@ -588,15 +588,12 @@ ul.home-list
 
 .item-vertical
 	margin-top: 80px
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	align-items: center
+	height: 350px
 	text-align: center
-	// Если открывать сайт через file:// - то будут слишком большие иконки, по этому надо дописать img.
-	// т.к. наш скрипт использует XML HTTP request, который не работает с протоколом file, по этому картинки не заменяются SVG
-	svg, img
-		width: 74px
-		height: auto
-	path
-		fill: #555
-		+mt(.5s)
 	&:hover
 		.button-gray
 			background-color: $accent
@@ -611,7 +608,6 @@ ul.home-list
 			&:active
 				box-shadow: 0px 4px 0px #da9c06
 				background-color: #da9c06
-
 		path
 			fill: $accent!important
 		h3
@@ -619,8 +615,20 @@ ul.home-list
 				background-color: $accent
 				width: 93px
 				left: calc(50% - 2.9rem)
+	.item-vertical-subelement
+		display: flex
+		flex-direction: column
+		align-items: center
+		svg, img
+			width: 74px
+			height: auto
+		path
+			fill: #555
+			+mt(.5s)
+
+.item-vertical-subelement
 	h3
-		padding-bottom: 15px
+		padding: 15px
 		position: relative
 		text-align: center
 		&::before
@@ -638,10 +646,9 @@ ul.home-list
 		padding: 0 10px
 		margin-top: 25px
 		margin-bottom: 30px
-	.h3-project
-		padding-top: 2px
-	.h3-equip
-		padding-top: 1px
+
+
+
 
 .s-works
 	padding-bottom: 0
@@ -652,12 +659,19 @@ ul.home-list
 
 .portfolio
 	width: 100%
+	.row
+		width: 100%
+		margin: 0
+		// .portfolio-contain-item
+		// 	width: 25%
 	.col-xl-3
 		padding: 0
 	.portfolio-item
 		position: relative
 		display: block
 		overflow: hidden
+		.portfolio-item-content
+			width: 100%
 		img
 			+mt(.5s)
 		&:hover
@@ -820,21 +834,12 @@ ul.home-list
 		svg
 			position: absolute
 			max-height: 50px
-			left: -5px
-			top: 45px
+			left: 0
+			top: 11%
+			width: 100%
 			path
 				fill: #fff!important
 				+mt(.25s)
-	.daikin
-		svg
-			width: 70%
-			left: 45px
-	.mitsubishi
-		svg
-			left: -115px
-	.venterra
-		svg
-			left: -295px
 	h3
 		font-size: 18px
 		font-family: $default-font, sans-serif
