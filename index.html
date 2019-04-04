@@ -12,12 +12,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<!-- Template Basic Images Start -->
-	<meta property="og:image" content="path/to/image.jpg">
-	<link rel="icon" href="img/favicon/favicon_48х48.ico">
-	<link rel="apple-touch-icon" sizes="128x128" href="img/favicon/favicon_48х48.ico">
-	<!-- Template Basic Images End -->
-
 	<!-- Custom Browsers Color Start -->
 	<meta name="theme-color" content="#000">
 	<!-- Custom Browsers Color End -->
@@ -29,7 +23,7 @@
 <body class=ishome>
 
 	<!-- Custom HTML -->
-	<header class="main-head">
+	<header id='main' class="main-head" style='background-image: url(img/bg_top.jpg); background-position: top center; background-size: cover'>
 		<div class="container">
 
 			<div class="mnu-line clearfix">
@@ -47,7 +41,7 @@
 
 							<a href="#callback" class="callback"
 								data-form="Заказать обратный звонок: Верхняя"
-								date-text="Заказать звонок"
+								data-text="Заказать звонок"
 								>Заказать обратный звонок</a>
 						</div>
 						<a href="#" class="toggle-mnu d-xl-none"><span></span></a>
@@ -56,11 +50,11 @@
 					<div class=".col-6">
 						<nav class="main-mnu d-none d-xl-block">
 							<ul>
-								<li class="active"><a href="#">Главная</a></li>
-								<li><a href="#">Монтаж</a></li>
-								<li><a href="#">Проектирование</a></li>
-								<li><a href="#">Оборудование</a></li>
-								<li><a href="#">Контакты</a></li>
+								<li class="active"><a href="#main">Главная</a></li>
+								<li><a href="#services">Услуги</a></li>
+								<li><a href="#equipment">Оборудование</a></li>
+								<li><a href="#review">Отзывы клиентов</a></li>
+								<li><a href="#contacts">Контакты</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -68,11 +62,11 @@
 					<div class="col-sm-12 d-xl-none order-11">
 						<nav class="main-mnu hidden-mnu">
 							<ul>
-								<li class="active"><a href="#">Главная</a></li>
-								<li><a href="#">Монтаж</a></li>
-								<li><a href="#">Проектирование</a></li>
-								<li><a href="#">Оборудование</a></li>
-								<li><a href="#">Контакты</a></li>
+								<li class="active"><a href="#main">Главная</a></li>
+								<li><a href="#services">Услуги</a></li>
+								<li><a href="#equipment">Оборудование</a></li>
+								<li><a href="#review">Отзывы клиентов</a></li>
+								<li><a href="#contacts">Контакты</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -92,7 +86,7 @@
 							<li><i class="fa fa-check" aria-hidden="true"></i>Бесплатный выезд инженера</li>
 						</ul>
 
-						<a href="#callback" class="button"
+						<a href="#callback" class="button callback"
 							data-form="Отправить заявку: Шапка"
 							data-text="Отправить заявку">Отправить заявку
 						</a>
@@ -112,14 +106,12 @@
 				<div class="mouse-icon"><div class="wheel"></div></div>
 			</div>
 
-
 		</div>
 	</header>
 
 
 
 	<section class="s-wide s-dark s-adv">
-
 		<div class="container">
 			<div class="row">
 
@@ -152,18 +144,16 @@
 				</div>
 
 			</div>
-
 		</div>
-
 	</section>
 
-	<section class="s-wide s-gray s-profile">
 
+
+	<section id="services" class="s-wide s-gray s-profile">
 		<div class="container">
 			<div class="row">
 
 				<div class="col-md-6">
-
 					<div class="home-gallery-wrap mfp-gallery">
 
 						<a href="img/photos/1.jpg" class="gallery-tizer-wrap" style="background-image:url(img/photos/1.jpg)" data-source="img/gallery_photo.jpg">
@@ -185,12 +175,9 @@
 						<a href="img/photos/3.jpg"></a>
 
 					</div>
-
-
 				</div>
 
 				<div class="col-md-6">
-
 						<h2>Кондиционирование и вентиляция - это наш профиль</h2>
 						<p>Обращаясь в нашу компанию, вы гарантированно получаете высокое качество проектирования и монтажа вентиляционных систем. ОВК СТРОЙ - это команда профессионалов с многолетним опытом работы на рынке.</p>
 
@@ -200,29 +187,29 @@
 						</ul>
 
 						<div class="row">
-							<div class="col-sm-12 col-md-12 col-lg-6"><a href="#callback" class="button" data-form="Сделать заказ: Первая секция"
-							data-taxt="Сделать заказ">Сделать заказ</a></div>
+							<div class="col-sm-12 col-md-12 col-lg-6">
+								<a href="#callback" class="button callback"
+								data-form="Сделать заказ: Первая секция"
+								data-text="Сделать заказ"
+								>Сделать 	заказ</a>
+							</div>
+
 							<div class="col-sm-12 col-md-12 col-lg-6">
 								<div class="certificate-wrap mfp-gallery">
 									<a href="img/certificate/certificate.jpg" class="button button-accent"><span>Наши</span> Cертификаты</a>
 									<a href="img/certificate/certificate_2.jpg"><span>Наши</span> Cертификаты</a>
 								</div>
-
 							</div>
 						</div>
-
 				</div>
 
-
 			</div>
-
 		</div>
-
 	</section>
 
+
+
 	<section class="s-wide s-direct">
-
-
 		<div class="container">
 			<div class="row">
 
@@ -248,7 +235,7 @@
 							<p>Монтаж вентиляции является основным и главным направлением компании ОВК Строй. Наша компания выполняет монтаж вентиляции уже более 6 лет.</p>
 						</div>
 						<div class="item-vertical-subelement">
-							<a href="#callback" class="button button-small button-gray"
+							<a href="#callback" class="button button-small button-gray callback"
 							data-form="Заказать монтаж"
 							data-text="Заказать монтаж">Заказать <span>монтаж</span></a>
 						</div>
@@ -275,7 +262,7 @@
 							<p>Основная задача наших специалистов это поиск оптимальных решений по взаимодействию и интеграции в архитекруту здания вышеуказанных инженерных систем.</p>
 						</div>
 						<div class='item-vertical-subelement'>
-							<a href="#callback" class="button button-small button-gray" data-form="Заказать проектирование"
+							<a href="#callback" class="button button-small button-gray callback" data-form="Заказать проектирование"
 							data-text="Заказать проектирование">Заказать <span>проектирование</span></a>
 						</div>
 
@@ -301,8 +288,10 @@
 							<p>Кроме того, мы реализуем оборудование для кондиционирования и вентиляции помещений в Москве и обасти.</p>
 						</div>
 						<div class="item-vertical-subelement">
-							<a href="#callback" class="button button-small button-gray" data-form="Заказать оборудование"
-							data-text="Заказать оборудование">Заказать <span>оборудование</span></a>
+							<a href="#callback" class="button button-small button-gray callback"
+							data-form="Заказать оборудование"
+							data-text="Заказать оборудование"
+							>Заказать <span>оборудование</span></a>
 						</div>
 
 					</div>
@@ -311,13 +300,11 @@
 
 			</div>
 		</div>
-
-
 	</section>
 
+
+
 	<section class="s-wide s-dark s-works">
-
-
 		<div class="container-fluid">  <!-- fliod растягивает сонтейнер на всю длину экрана-->
 			<div class="row">
 
@@ -710,11 +697,11 @@
 
 			</div>
 		</div>
-
 	</section>
 
 
-	<section class="s-wide s-equipment">
+
+	<section id='equipment' class="s-wide s-equipment">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
@@ -722,7 +709,6 @@
 				</div>
 
 				<div class="owl-carousel owl-theme slide-one">
-					<!-- <div class="carousel-item"> -->
 
 					<div class="carousel-wrap">
 						<div class="car-img-wrap">
@@ -747,7 +733,6 @@
 						</div>
 						<a href="#" class="button button-small button-gray">Перейти в каталог</a>
 					</div>
-					<!-- </div> -->
 
 					<div class="carousel-wrap">
 						<div class="car-img-wrap">
@@ -849,10 +834,11 @@
 				</div>
 
 
-
 			</div>
 		</div>
 	</section>
+
+
 
 	<section class="s-wide s-dark text-center">
 		<div class="container">
@@ -864,14 +850,16 @@
 
 				<div class="col-sm-10 offset-md-1">
 					<p class="tizer-text">Всем клиентам, обратившимся в нашу компанию до октября 2016 года мы предоставляем уникальную возможность получить <strong>скидку до 40%</strong>.</p>
-					<a href="#callback" class="button"
+					<a href="#callback" class="button callback"
 					data-form="Всем клиентам скидки"
-					data-text="Отправить заявку">Отправить заявку</a>
+					data-text="Отправить заявку"
+					>Отправить заявку</a>
 				</div>
 
 			</div>
 		</div>
 	</section>
+
 
 
 	<section class="s-wide s-gray s-callback">
@@ -923,8 +911,8 @@
 	</section>
 
 
-	<section class="s-wide s-brands">
 
+	<section class="s-wide s-brands">
 		<div class="container">
 			<div class="row">
 
@@ -933,59 +921,61 @@
 				</div>
 
 				<div class="col-sm-12">
-					<div class="owl-carousel slide-two">
+					<div class="corContain">
+						<div class="owl-carousel slide-two">
+							<div class="carousel-brand">
+								<a href="#">
+									<img src="img/partners/daikin.svg" alt="Daikin">
+								</a>
+							</div>
 
-						<div class="carousel-brand">
-							<a href="#">
-								<img src="img/partners/daikin.svg" alt="Daikin">
-							</a>
+							<div class="carousel-brand">
+								<a href="#">
+									<img src="img/partners/amalva.svg" alt="Amalva">
+								</a>
+							</div>
+
+							<div class="carousel-brand">
+								<a href="#">
+									<img src="img/partners/arktos.svg" alt="Arktos">
+								</a>
+							</div>
+
+							<div class="carousel-brand">
+								<a href="#">
+									<img src="img/partners/general.svg" alt="Bewfort">
+								</a>
+							</div>
+
+							<div class="carousel-brand">
+								<a href="#">
+									<img src="img/partners/korf.svg" alt="korf">
+								</a>
+							</div>
+
+							<div class="carousel-brand">
+								<a href="#">
+									<img src="img/partners/lg.svg" alt="lg">
+								</a>
+							</div>
+
+							<div class="carousel-brand">
+								<a href="#">
+									<img src="img/partners/mitsubishi.svg" alt="mitsubishi">
+								</a>
+							</div>
 						</div>
-
-						<div class="carousel-brand">
-							<a href="#">
-								<img src="img/partners/amalva.svg" alt="Amalva">
-							</a>
-						</div>
-
-						<div class="carousel-brand">
-							<a href="#">
-								<img src="img/partners/arktos.svg" alt="Arktos">
-							</a>
-						</div>
-
-						<div class="carousel-brand">
-							<a href="#">
-								<img src="img/partners/general.svg" alt="Bewfort">
-							</a>
-						</div>
-
-						<div class="carousel-brand">
-							<a href="#">
-								<img src="img/partners/korf.svg" alt="korf">
-							</a>
-						</div>
-
-						<div class="carousel-brand">
-							<a href="#">
-								<img src="img/partners/lg.svg" alt="lg">
-							</a>
-						</div>
-
-						<div class="carousel-brand">
-							<a href="#">
-								<img src="img/partners/mitsubishi.svg" alt="mitsubishi">
-							</a>
-						</div>
-
 					</div>
+
 				</div>
 
 			</div>
 		</div>
-
 	</section>
 
-	<section class="s-wide s-gray s-testimonials">
+
+
+	<section id='review' class="s-wide s-gray s-testimonials">
 
 		<div class="container">
 			<div class="row">
@@ -1019,7 +1009,7 @@
 							<img src="img/peoples/member3.png" alt="Alt">
 						</div>
 						<div class="testimonials-head">
-							<h4>Яйцеслав</h4>
+							<h4>Ярослав</h4>
 							<p>ООО "Home Video"</p>
 						</div>
 						<div class="testimonials-desc">
@@ -1050,11 +1040,11 @@
 
 			</div>
 		</div>
-
 	</section>
 
-	<section class="s-wide s-dark s-contacts">
 
+
+	<section id='contacts' class="s-wide s-dark s-contacts">
 		<div class="container">
 			<div class="row">
 
@@ -1065,21 +1055,27 @@
 				<div class="col-sm-12">
 					<div class="row s-contacts-wrapper">
 
-							<div class="col-sm-8">
-
+							<div class="s-contacts-container col-md-8">
 								<div class="s-contacts-text">
 									<p><i class="fa fa-map-marker"></i> <strong>Адрес:</strong> Москва, ул. Пантелеева, 15, оф. 3-03</p>
 									<p><i class="fa fa-mobile"></i> <strong>Телефон:</strong> 8 (495) 970-44-90</p>
 								</div>
 
-								<div class="map">
-									Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Океана, за жизни, большого переписывается обеспечивает скатился над проектах приставка ему, переписали выйти все возвращайся курсивных жаренные вопроса пояс. Подзаголовок!
+								<div class="map-container">
+									<div id="map" class='myMap'></div>
 								</div>
-
 							</div>
-							<div class="col-sm-4">
+
+							<div class="col-sm-12 col-md-4">
 
 								<form class="contact-form">
+									<div class="success"><span>Сообщение отправлено</span></div>
+									<!-- Hidden Required Fields -->
+									<input type="hidden" name="project_name" value="MySite: OVK building">
+									<input type="hidden" name="admin_email" value="everistus.pr@yandex.ru">
+									<input type="hidden" name="form_subject" value="Контакты - Форма">
+									<!-- END Hidden Required Fields -->
+
 
 									<div class="contact-form-head">
 										<h4>Оставить заявку</h4>
@@ -1088,7 +1084,7 @@
 									<!-- name="Имя" - русскими буквами, т.к. скрипт Юнимейл будем использовать в модекс -->
 									<label>
 										<span>Ваше имя:</span>
-										<input type="text" name="Имя" placeholder="Ваше имя...">
+										<input type="text" name="Имя" placeholder="Ваше имя..." required>
 									</label>
 
 									<label>
@@ -1110,20 +1106,18 @@
 									</div>
 
 								</form>
-
 							</div>
 
 					</div>
 				</div>
+
 			</div>
-
 		</div>
-
 	</section>
 
 
-	<footer class="main-foot">
 
+	<footer class="main-foot">
 		<div class="container">
 
 			<div class="mnu-line clearfix">
@@ -1142,60 +1136,59 @@
 
 							<a href="#callback" class="callback"
 							data-form="Заказать обратный звонок: Нижняя"
-							data-text="Заказать звонок">Заказать обратный звонок</a>
+							data-text="Заказать звонок"
+							>Заказать обратный звонок</a>
 
 						</div>
-
 						<a href="#" class="toggle-mnu d-xl-none"><span></span></a>
 					</div>
 
 					<div class=".col-6">
-
 						<nav class="main-mnu d-none d-xl-block">
 							<ul>
-								<li class="active"><a href="#">Главная</a></li>
-								<li><a href="#">Монтаж</a></li>
-								<li><a href="#">Проектирование</a></li>
-								<li><a href="#">Оборудование</a></li>
-								<li><a href="#">Контакты</a></li>
+								<li class="active"><a href="#main">Главная</a></li>
+								<li><a href="#services">Услуги</a></li>
+								<li><a href="#equipment">Оборудование</a></li>
+								<li><a href="#review">Отзывы клиентов</a></li>
+								<li><a href="#contacts">Контакты</a></li>
 							</ul>
 						</nav>
-
 					</div>
 
 					<div class="col-sm-12 d-xl-none order-11">
-
 						<nav class="main-mnu hidden-mnu">
 							<ul>
-								<li class="active"><a href="#">Главная</a></li>
-								<li><a href="#">Монтаж</a></li>
-								<li><a href="#">Проектирование</a></li>
-								<li><a href="#">Оборудование</a></li>
-								<li><a href="#">Контакты</a></li>
+								<li class="active"><a href="#main">Главная</a></li>
+								<li><a href="#services">Услуги</a></li>
+								<li><a href="#equipment">Оборудование</a></li>
+								<li><a href="#review">Отзывы клиентов</a></li>
+								<li><a href="#contacts">Контакты</a></li>
 							</ul>
 						</nav>
-
 					</div>
-
-
 
 				</div>
 			</div>
 
 		</div>
-
 	</footer>
+
 
 
 	<div class="hidden">
 
-		<form id="callback" class="contact-form form-callback">
+		<form id='callback' class="contact-form form-callback">
 
-			<div class="success">
+			<div class="success_popup">
 				<p>Спасибо за заявку!</p>
 			</div>
 
+			<!-- Hidden Required Fields -->
+			<input type="hidden" name="project_name" value="MySite: OVK building">
+			<input type="hidden" name="admin_email" value="everistus.pr@yandex.ru">
+			<input type="hidden" name="form_subject" value="Контакты - Форма">
 			<input type="hidden" name="admin-data">
+			<!-- END Hidden Required Fields -->
 
 			<div class="contact-form-head">
 				<h4>Оставить заявку</h4>
@@ -1204,7 +1197,7 @@
 			<!-- name="Имя" - русскими буквами, т.к. скрипт Юнимейл будем использовать в модекс -->
 			<label>
 				<span>Ваше имя:</span>
-				<input type="text" name="Имя" placeholder="Ваше имя...">
+				<input type="text" name="Имя" placeholder="Ваше имя..." required>
 			</label>
 
 			<label>
@@ -1212,10 +1205,10 @@
 				<input type="text" name="Телефон" placeholder="Ваше телефон..." required>
 			</label>
 
-
 			<div class="text-center">
 				<button class="button button-small">Отправить</button>
 			</div>
+
 		</form>
 
 	</div>
@@ -1223,6 +1216,13 @@
 
 
 
+
+
+
+
+
+
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=<ваш API-ключ>&lang=ru_RU" type="text/javascript"></script>
 	<script src="js/scripts.min.js"></script>
 
 </body>

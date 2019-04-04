@@ -2,6 +2,10 @@ $(function() {
 
   $(".slide-one").owlCarousel({
     loop: true,
+    autoplay: true,
+    autoplayTimeout: 4000,
+    autoplayHoverPause: true,
+    margin:20,
     responsive:{
            0:{
                items:1
@@ -51,19 +55,34 @@ $(function() {
        }
   });
 
+
+  ymaps.ready(init);
+  function init(){
+    // Создание карты.
+    var myMap = new ymaps.Map("map", {
+      // Координаты центра карты.
+      // Порядок по умолчанию: «широта, долгота».
+      // Чтобы не определять координаты центра карты вручную,
+      // воспользуйтесь инструментом Определение координат.
+      center: [55.711132, 37.618008],
+      // Уровень масштабирования. Допустимые значения:
+      // от 0 (весь мир) до 19.
+      zoom: 16
+    });
+    var myPlacemark = new ymaps.Placemark([55.711132, 37.618008]);
+    myMap.geoObjects.add(myPlacemark);
+  }
+
+
   function heightses() {
     $('.s-direct .item-vertical p').height('auto').equalHeights();
     $('.testimonials-head').height('auto').equalHeights();
     $('.testimonials-desc').height('auto').equalHeights();
   }
-
   $(window).resize(function() {
     heightses();
   });
-
   heightses();
-
-
 
 
   $("a[href='#callback']").click(function() {
@@ -76,9 +95,7 @@ $(function() {
   });
 
 
-
-
-// -----------------magnificPopup для портфолио----------------------
+  // -----------------magnificPopup для портфолио----------------------
   $(".portfolio-item").each(function(e) {
     var th = $(this);
 
@@ -87,46 +104,52 @@ $(function() {
         .attr("id", "portfolio-img-" + e);   // Ссылка ведет на portfolio-popup - id
   });
 
-  $(".portfolio-item, a[href='#callback']").magnificPopup({
+  $(".portfolio-item, .callback").magnificPopup({
     type: 'inline',
     mainClass: 'my-mfp-zoom-in',
-    removalDelay: 300,
+    removalDelay: 300
   });
 
-//---------------magnificPopup для галереи-------------
+
+
+
+
+
+  //---------------magnificPopup для галереи-------------
   $('.mfp-gallery').each(function() {
     $(this).magnificPopup({
-  	mainClass: 'mfp-zoom-in',
-  	delegate: 'a',
-  	type: 'image',
-  	tLoading: '',
-  	gallery:{
-  		enabled:true,
-  	},
-  	removalDelay: 300,
-  	callbacks: {
-  		beforeChange: function() {
-  			this.items[0].src = this.items[0].src + '?=' + Math.random();
-  		},
-  		open: function() {
-  			$.magnificPopup.instance.next = function() {
-  				var self = this;
-  				self.wrap.removeClass('mfp-image-loaded');
-  				setTimeout(function() { $.magnificPopup.proto.next.call(self); }, 120);
-  			}
-  			$.magnificPopup.instance.prev = function() {
-  				var self = this;
-  				self.wrap.removeClass('mfp-image-loaded');
-  				setTimeout(function() { $.magnificPopup.proto.prev.call(self); }, 120);
-  			}
-  		},
-  		imageLoadComplete: function() {
-  			var self = this;
-  			setTimeout(function() { self.wrap.addClass('mfp-image-loaded'); }, 16);
-  		}
-  	}
+  	  mainClass: 'mfp-zoom-in',
+  	  delegate: 'a',
+  	  type: 'image',
+  	  tLoading: '',
+  	  gallery:{
+  		  enabled:true,
+  	  },
+  	  removalDelay: 300,
+  	  callbacks: {
+  		  beforeChange: function() {
+  			  this.items[0].src = this.items[0].src + '?=' + Math.random();
+        },
+  		  open: function() {
+  			  $.magnificPopup.instance.next = function() {
+    				var self = this;
+    				self.wrap.removeClass('mfp-image-loaded');
+    				setTimeout(function() { $.magnificPopup.proto.next.call(self);   }, 120);
+  			  }
+    			$.magnificPopup.instance.prev = function() {
+    				var self = this;
+    				self.wrap.removeClass('mfp-image-loaded');
+    				setTimeout(function() { $.magnificPopup.proto.prev.call(self); }, 120);
+  			  }
+  		  },
+  		  imageLoadComplete: function() {
+  			  var self = this;
+  			  setTimeout(function() { self.wrap.addClass('mfp-image-loaded'); }, 16);
+  		  }
+  	  }
+    });
   });
-});
+
 
   $(".mouse-icon").click(function() {
     $("html, body").animate({
@@ -156,21 +179,47 @@ $(".s-adv-item h3 span").each(function() {
 		1200);
   });
   this.destroy();  // блюр на цифрах работает только при первом скроле сайта.
-
   }, {
     offset: '70%'
   });
 
-  $(".toggle-mnu").click(function() {
-    $(this).toggleClass("on");
-    $(".toggle-mnu").parent().next().next().find(".main-mnu").slideToggle();
-    return false;
-  });
 
-  $(".main-foot .toggle-mnu").click(function() {
-    $("html, body").animate({scrollTop: $(document).height() + 200}, "slow");
+  let getToggleMnu;
+  function getToggleMnuMainFunc(){
+    let _this;
+
+    getToggleMnu = function() {
+      $(_this).toggleClass("on");
+      $(".toggle-mnu").parent().next().next().find(".main-mnu").slideToggle();
       return false;
-  });
+    };
+
+    $(".toggle-mnu").click(function() {
+      _this = this;
+      getToggleMnu();
+    });
+
+    $(".main-foot .toggle-mnu").click(function() {
+      $("html, body").animate({scrollTop: $(document).height() + 200}, "slow");
+        return false;
+    });
+  }
+  getToggleMnuMainFunc();
+
+
+
+  function getAnchor(){
+    _this = this;
+    $('.main-mnu a[href^="#"]').click(function(){
+      let target = $(this).attr('href');
+      $('html, body').animate({
+        scrollTop: $(target).offset().top
+      }, 500);
+      getToggleMnu();
+    })
+  }
+  getAnchor();
+
 
 // При клике на top страница листается вверх----------------
   $("body").on("click", ".top", function() {
@@ -181,59 +230,44 @@ $(".s-adv-item h3 span").each(function() {
 // Создание класса top для кнопки вверх---------------------
   $("body").append('<div class="top"><i class="fa fa-angle-double-up"></i>');
 
-  // /*   * Replace all SVG images with inline SVG   */
-  // $('img.img-svg').each(function(){
-  //     var $img = $(this);
-  //     var imgID = $img.attr('id');
-  //     var imgClass = $img.attr('class');
-  //     var imgURL = $img.attr('src');
-  //
-  //     $.get(imgURL, function(data) {
-  //         // Get the SVG tag, ignore the rest
-  //         var $svg = $(data).find('svg');
-  //
-  //         // Add replaced image's ID to the new SVG
-  //         if(typeof imgID !== 'undefined') {
-  //             $svg = $svg.attr('id', imgID);
-  //         }
-  //         // Add replaced image's classes to the new SVG
-  //         if(typeof imgClass !== 'undefined') {
-  //             $svg = $svg.attr('class', imgClass+' replaced-svg');
-  //         }
-  //
-  //         // Remove any invalid XML tags as per http://validator.w3.org
-  //         $svg = $svg.removeAttr('xmlns:a');
-  //
-  //         // Check if the viewport is set, if the viewport is not set the SVG wont't scale.
-  //         if(!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
-  //             $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
-  //         }
-  //
-  //         // Replace image with new SVG
-  //         $img.replaceWith($svg);
-  //
-  //     }, 'xml');
-  //
-  // });
 
   //E-mail Ajax Send
-	$("form").submit(function() { //Change
-		var th = $(this);
-		$.ajax({
-			type: "POST",
-			url: "mail.php", //Change
-			data: th.serialize()
-		}).done(function() {
-			$(".form-callback .success").addClass("active");
-			setTimeout(function() {
-				// Done Functions
-        $(".form-callback .success").removeClass("active");
-				th.trigger("reset");
-        $.magnificPopup.close();
-			}, 3000);
-		});
-		return false;
-	});
+  $("form.contact-form").submit(function() { //Change
+  var th = $(this);
+  $.ajax({
+    type: "POST",
+    url: "mail.php", //Change
+    data: th.serialize()
+  }).done(function() {
+   $(th).find('.success').addClass('active').css('display','flex').hide().fadeIn();
+    setTimeout(function() {
+      $(th).find('.success').removeClass('active').fadeOut();
+      th.trigger("reset");
+    }, 2000);
+  });
+  return false;
+});
+
+  $("#callback").submit(function() { //Change
+  var th = $(this);
+  $.ajax({
+    type: "POST",
+    url: "mail.php", //Change
+    data: th.serialize()
+  }).done(function() {
+    $('.form-callback .success_popup').addClass('active');
+    setTimeout(function() {
+      $('.form-callback .success_popup').removeClass('active');
+      th.trigger("reset");
+      $.magnificPopup.close();
+    }, 2000);
+  });
+  return false;
+});
+
+
+
+
 
   $(window).scroll(function() {
     if($(this).scrollTop() > $(this).height()) {
@@ -242,5 +276,6 @@ $(".s-adv-item h3 span").each(function() {
       $(".top").removeClass("active");
     }
   });
+
 
 });

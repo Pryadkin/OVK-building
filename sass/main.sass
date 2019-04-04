@@ -67,8 +67,11 @@ b, strong
 	font-weight: bold
 
 .contact-form
+	height: 100%
 	padding: 32px 26px
 	background-color: #3a4651
+	position: relative
+	z-index: 10
 	.button
 		margin-top: 25px
 	&-head
@@ -116,9 +119,6 @@ form
 
 
 .main-head
-	background-image: url(/img/bg_top.jpg)
-	background-size: cover   //чтобы картинка не репитилась и не было линий перехода
-	background-position: top center
 	height: 100vh
 	overflow: hidden
 
@@ -143,10 +143,8 @@ form
 
 nav,
 .header-content
-	padding: 0
+	padding: 20px 0 0
 	margin: auto 0
-	// .mw-wrapper
-	// 	margin: 20px 0
 	ul
 		list-style-type: none
 		padding: 0
@@ -195,7 +193,6 @@ nav,
 
 .header-content
 	margin: 0 auto
-	// padding-bottom: 10%
 	.button
 		margin-top: 50px
 
@@ -499,10 +496,6 @@ ul.home-list
 	display: table
 	width: 100%
 	table-layout: fixed
-// .tr
-// 	display: table-row
-// .td
-// 	display: table-cell
 
 .s-profile
 	h2
@@ -620,8 +613,7 @@ ul.home-list
 		flex-direction: column
 		align-items: center
 		svg, img
-			width: 74px
-			height: auto
+			height: 74px
 		path
 			fill: #555
 			+mt(.5s)
@@ -662,8 +654,6 @@ ul.home-list
 	.row
 		width: 100%
 		margin: 0
-		// .portfolio-contain-item
-		// 	width: 25%
 	.col-xl-3
 		padding: 0
 	.portfolio-item
@@ -754,11 +744,11 @@ ul.home-list
 	position: relative
 	overflow: hidden
 	.mfp-close
-		color: #fff
+		color: white
 		opacity: .3
+		+mt(.5s)
 		&:hover
 			opacity: 1
-			+mt(.5s)
 	.contact-form-head
 		h4
 			color: #fff
@@ -783,17 +773,6 @@ ul.home-list
     opacity: 0.8
   &.mfp-removing.mfp-bg
     opacity: 0
-
-//-------------------------------
-// Блюр для всплывающих картинок
-//-------------------------------
-
-// *
-// 	transition: filter .25s ease
-// .mfp-wrap ~ *
-// 	filter: blur(5px)
-
-// ---------------------------------------------
 
 
 // -------------------------------------------
@@ -857,11 +836,12 @@ ul.home-list
 .s-equipment
 	h2
 		margin-bottom: 50px
-
+.corContain
+	width: 100%
 	.owl-carousel
+		width: 100%
+		overflow: hidden
 		text-align: center
-		.carousel-wrap
-			margin: 15px
 		.owl-dots
 			margin-top: 25px
 			.owl-dot
@@ -1038,12 +1018,25 @@ ul.home-list
 
 .s-contacts
 	color: #fff
+	.container
+		.row
+			.col-sm-12
+				.s-contacts-wrapper
+					margin-top: 40px
+					.s-contacts-container
+						display: flex
+						flex-direction: column
+						justify-content: space-between
+						.map-container
+							display: flex
+							flex-basis: 80%
+							padding: 0
+							border: 5px solid $accent
+							.myMap
+								width: 100%
+								height: 100%
+								margin: 0
 
-.s-contacts-wrapper
-	margin-top: 40px
-		margin:
-			top:  30px
-			bottom: 20px
 
 .s-contacts-text
 	font-family: $default-font, sans-serif
@@ -1075,7 +1068,31 @@ ul.home-list
 		.phone-wrap
 			color: #acb6be
 
+
 .success
+	color: #fff
+	background-color: $blue
+	position: absolute
+	z-index: -1
+	left: 0
+	top: 0
+	width: 100%
+	height: 100%
+	display: flex
+	opacity: 0
+	+mt(.5s)
+	span
+		margin: auto
+		font-size: 24px
+	p
+		display: flex
+		margin: auto
+	&.active
+		top: 0
+		opacity: 1
+		z-index: 1
+
+.success_popup
 	color: #fff
 	background-color: $blue
 	position: absolute
@@ -1090,13 +1107,16 @@ ul.home-list
 	p
 		display: flex
 		margin: auto
+		font-size: 1.5rem
 	&.active
 		top: 0
 		opacity: 1
 
+
+
 .top
 	position: fixed
-	bottom: 36px
+	bottom: 90px
 	right: -120px
 	width: 50px
 	height: 50px
@@ -1106,7 +1126,7 @@ ul.home-list
 	opacity: .4
 	color: $blue
 	+mt(.25s)
-	z-index: 5
+	z-index: 10
 	.fa
 		font-size: 32px
 		margin-top: 7px
@@ -1117,11 +1137,58 @@ ul.home-list
 		right: 20px
 
 
+.popup_form
+	position: relative
+	margin: 20px auto
+
+
+.white-popup
+  position: relative
+  background: #FFF
+  padding: 20px
+  width: auto
+  max-width: 500px
+  margin: 20px auto
 
 
 
 
+// ----magnificPopup----
 
+/* overlay at start */
+.mfp-fade.mfp-bg
+	opacity: 0
+
+  -webkit-transition: all 0.15s ease-out
+	-moz-transition: all 0.15s ease-out
+	transition: all 0.15s ease-out
+
+/* overlay animate in */
+.mfp-fade.mfp-bg.mfp-ready
+	opacity: 0.8
+
+/* overlay animate out */
+.mfp-fade.mfp-bg.mfp-removing
+	opacity: 0
+
+
+/* content at start */
+.mfp-fade.mfp-wrap .mfp-content
+	opacity: 0
+
+  -webkit-transition: all 0.15s ease-out
+	-moz-transition: all 0.15s ease-out
+	transition: all 0.15s ease-out
+
+/* content animate it */
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content
+	opacity: 1
+
+/* content animate out */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content
+	opacity: 0
+
+// ----End magnificPopup----
 
 
 
